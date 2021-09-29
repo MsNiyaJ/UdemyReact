@@ -18,7 +18,7 @@ export class Users extends Component {
                 id: '3',
                 login: 'pjhyett',
                 avatar_url: 'https://avatars.githubusercontent.com/u/3?v=4',
-                html_url: 'https://github.com/pjhyet'
+                html_url: 'https://github.com/pjhyett'
             }
         ]
     }
