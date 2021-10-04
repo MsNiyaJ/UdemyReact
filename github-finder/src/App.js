@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
+import Search from './components/users/Search';
 import axios from 'axios';
 import './App.css';
 
@@ -10,20 +11,21 @@ class App extends Component {
     loading: false
   }
   
-  // Runs on load
-  async componentDidMount() {
-    this.setState({loading: true});
+  // Runs on load: Displays all users
+  // async componentDidMount() {
+  //   this.setState({loading: true});
 
-    const res = await axios.get('https://api.github.com/users');
+  //   const res = await axios.get('https://api.github.com/users');
 
-    res.data.push({
-      login: 'MsNiyaJ',
-      id: 47842684,
-      avatar_url: 'https://avatars.githubusercontent.com/u/47842684?v=4',
-      html_url: 'https://github.com/MsNiyaJ'
-    })
+  //   this.setState({users: res.data, loading: false});
+  // }
 
-    this.setState({users: res.data, loading: false});
+  // Search github users
+  searchUsers = async text => {
+    this.setState({ loading: true })
+    const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
+
+    this.setState({users: res.data.items, loading: false});
   }
 
   render() {
@@ -31,6 +33,7 @@ class App extends Component {
       <div className='App'>
         <Navbar/>
         <div className='container'>
+          <Search searchUsers={this.searchUsers}/>
           <Users loading={this.state.loading} users={this.state.users}/>
         </div>
       </div>
