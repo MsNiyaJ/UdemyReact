@@ -20,7 +20,6 @@ export class Search extends Component {
         } else {
             this.props.searchUsers(this.state.text);
             this.setState({ text: '' })
-            this.props.setAlert('Success', 'success');
         }
     }
 
