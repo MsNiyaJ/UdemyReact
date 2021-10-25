@@ -30,7 +30,7 @@ const Register = () => {
     e.preventDefault();
     if (name === '' || email === '' || password === '') {
       setAlert('Please enter all fields', 'danger');
-    } else if (password != password2) {
+    } else if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
       register({
