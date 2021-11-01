@@ -34,14 +34,9 @@
       "lastName": "Smith"
     },
     {
-      "id": 3,
       "firstName": "Sara",
-      "lastName": "Wilson"
-    },
-    {
-      "firstName": "Greg",
-      "lastName": "Harris",
-      "id": 4
+      "lastName": "Wilson",
+      "id": 3
     }
   ]
 }
